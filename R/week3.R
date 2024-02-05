@@ -5,7 +5,7 @@ setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
 raw_df <- read.csv(file = "../data/week3.csv", header = TRUE)
 raw_df$timeStart <- as.POSIXct(raw_df$timeStart)
 raw_df$timeEnd <- as.POSIXct(raw_df$timeEnd)
-clean_df <- raw_df[!grepl("2017-06", raw_df$timeEnd), ]
+clean_df <- raw_df[!grepl("2017-06-01", raw_df$timeStart), ] # Alternative way: clean_df <- subset(raw_df, raw_df$timeStart >= "2017-06-01 00:00:00") 
 clean_df <- clean_df[clean_df$q6 == 1,] 
 
 # Analysis
